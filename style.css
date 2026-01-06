@@ -1,0 +1,358 @@
+/* =========================
+   Reset & Base Styles
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+
+/* MONOSPACE – UI / HUMANIST STYLE */
+
+/* ROBOTO MONO */
+/*font-family: "Roboto Mono", monospace;*/
+
+/* INTER TIGHT MONO (closest Inter vibe) */
+/*font-family: "Inter Tight Mono", monospace;*/ /* if available */
+
+/* IBM PLEX MONO */
+/*font-family: "IBM Plex Mono", monospace;*/
+
+/* SOURCE CODE PRO */
+/*font-family: "Source Code Pro", monospace;*/
+
+/* DM MONO */
+/*font-family: "DM Mono", monospace;*/
+
+/* SPACE MONO (clean but wider) */
+font-family: "Space Mono", monospace;
+
+/* JETBRAINS MONO (very UI-friendly) */
+/*font-family: "JetBrains Mono", monospace;*/
+
+
+    background-color: #f0efef;
+    padding-top: 100px; /* espace pour le header */
+    color: #1d1d1d;
+}
+
+/* =========================
+   Header
+========================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo h1 a {
+    color: #000;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.logo a:visited {
+    color: #000;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    margin-left: 20px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #006887;
+}
+
+/* =========================
+   Homepage Image Container
+========================= */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* MOBILE IMAGE */
+@media screen and (max-width: 900px) {
+    .image-container {
+        max-width: 90%;
+        margin: 140px auto 20px auto;
+        padding: 0 10px;
+    }
+
+    .image-container img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+}
+
+/* =========================
+   GALLERY
+========================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 45px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 1s ease-in-out, filter 0.6s ease-in-out;
+}
+
+.gallery-item:hover img {
+    opacity: 0.8;
+    filter: grayscale(100%);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-content {
+    flex: 1;
+    font-size: 1em;
+    margin-top: 30px;
+}
+
+.image-content {
+    flex: 1;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 270px;
+    height: 300px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    margin-top: 30px;
+}
+
+/* MOBILE CONTACT PAGE */
+@media screen and (max-width: 900px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 20px;
+    }
+
+    .text-content {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .image-content {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .contact-image {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    .contact-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    .contact-buttons a {
+        display: inline-block;
+        text-decoration: bold;
+        padding: 10px 20px;
+        color: #000000;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: background-color 0.3s;
+    }
+
+    .contact-buttons a:hover {
+        background-color: #004f5e;
+    }
+}
+
+/* =========================
+   CAROUSEL
+========================= */
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    padding: 100px 20px 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.text-section {
+    flex: 1;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.text-section h1 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 20px 20px 20px;
+    }
+    .carousel {
+        width: 90%;
+        height: 90vw;
+    }
+    .text-section {
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   ✔✔✔ RESPONSIVE MOBILE HEADER FIX
+   (Auto-scaling header so it fits all mobile widths)
+========================================================= */
+@media screen and (max-width: 900px) {
+
+    .header {
+        padding: 12px 20px;
+    }
+
+    .logo h1 a {
+        font-size: clamp(0.55em, 4vw, 0.8em);
+    }
+
+    .navigation a {
+        font-size: clamp(0.7em, 3.5vw, 1em);
+        padding: 4px 6px;
+    }
+
+    .navigation li {
+        margin-left: 12px;
+    }
+}
